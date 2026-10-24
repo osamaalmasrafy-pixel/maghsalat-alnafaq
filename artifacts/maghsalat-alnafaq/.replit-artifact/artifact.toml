@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "مغسلة النفق"
+description = "موقع تعريفي عربي لمغسلة سيارات يعرّف بالخدمات ومعلومات الموقع والتواصل."
+version = "1.0.0"
+id = "artifacts/maghsalat-alnafaq"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19252
+
+[services.development]
+run = "pnpm --filter @workspace/maghsalat-alnafaq run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/maghsalat-alnafaq", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/maghsalat-alnafaq/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19252"
+BASE_PATH = "/"
