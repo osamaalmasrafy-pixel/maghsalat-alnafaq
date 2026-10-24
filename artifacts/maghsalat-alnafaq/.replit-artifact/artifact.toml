@@ -17,7 +17,7 @@ run = "pnpm --filter @workspace/maghsalat-alnafaq run dev"
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/maghsalat-alnafaq", "run", "build" ]
 serve = "static"
-publicDir = "artifacts/maghsalat-alnafaq/dist/public"
+publicDir = "docs"
 
 [[services.production.rewrites]]
 from = "/*"

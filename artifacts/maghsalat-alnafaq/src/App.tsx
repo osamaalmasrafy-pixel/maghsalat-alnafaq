@@ -132,7 +132,10 @@ function App() {
       </header>
 
       <section id="الرئيسية" className="container pt-6 md:pt-8">
-        <div className="hero-photo grain relative flex min-h-[570px] items-center overflow-hidden rounded-[28px] bg-[#182435] md:min-h-[640px]">
+        <div
+          className="hero-photo grain relative flex min-h-[570px] items-center overflow-hidden rounded-[28px] bg-[#182435] md:min-h-[640px]"
+          style={{ backgroundImage: `url("${import.meta.env.BASE_URL}tunnel-wash-hero.jpg")` }}
+        >
           <div className="relative z-10 w-full px-7 py-16 text-[#f7f3e9] md:px-16 lg:px-[88px]">
             <div className="fade-up mb-2 flex items-center gap-4">
               <img
@@ -164,7 +167,7 @@ function App() {
               <span>خدمات واضحة، عناية من القلب</span>
             </div>
           </div>
-          <div aria-hidden="true" className="absolute bottom-7 left-8 hidden select-none font-serif text-[11px] tracking-[.2em] text-white/50 [writing-mode:vertical-rl] md:block">مغسلة النفق · عناية يومية</div>
+          <div aria-hidden="true" className="absolute bottom-7 left-8 z-10 hidden select-none font-serif text-[11px] tracking-[.2em] text-white/50 [writing-mode:vertical-rl] md:block">مغسلة النفق · عناية يومية</div>
         </div>
       </section>
 
