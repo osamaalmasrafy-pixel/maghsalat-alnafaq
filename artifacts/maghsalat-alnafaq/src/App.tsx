@@ -88,6 +88,11 @@ const values = [
   { icon: ShieldCheck, title: 'عناية قبل السرعة', copy: 'نتعامل مع سيارتك باهتمام وحرص في كل خطوة.' },
   { icon: Droplets, title: 'أساسيات نظيفة', copy: 'خدمة واضحة تركز على نظافة السيارة كما ينبغي.' },
   { icon: MapPin, title: 'فرعان قريبان منك', copy: 'زورونا في حي المنسك أو على طريق الملك عبد الله.' },
+  {
+    icon: Sparkles,
+    title: 'فرش مايكروفوم فائقة النعومة',
+    copy: 'استخدام فرش مايكروفوم فائقة النعومة، وشديدة الالتقاط للأوساخ ولا يلتصق بها أي شوائب أو أتربة، ويتم غسلها بشكل آلي، لضمان أداء آمن على طلاء المركبة.',
+  },
 ];
 
 function App() {
@@ -99,7 +104,7 @@ function App() {
       <header className="relative z-20 border-b border-[#e1e7ec] bg-[#f6f8fa]/95">
         <div className="container flex h-[78px] items-center justify-between">
           <a href="#الرئيسية" onClick={closeMenu} aria-label="مغسلة النفق، الرئيسية" className="flex items-center gap-3 no-underline">
-            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="" className="h-11 w-11 rounded-full object-cover ring-1 ring-[#26374b]/15" />
+            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="شعار مغسلة النفق" className="h-14 w-14 rounded-full object-cover ring-2 ring-[#26374b]/15" />
             <span className="leading-tight">
               <span className="block text-[17px] font-bold tracking-tight text-[#26374b]">مغسلة النفق</span>
               <span className="mt-1 block text-[10px] tracking-[.08em] text-[#687887]">عناية تليق بمشوارك</span>
@@ -129,7 +134,17 @@ function App() {
       <section id="الرئيسية" className="container pt-6 md:pt-8">
         <div className="hero-photo grain relative flex min-h-[570px] items-center overflow-hidden rounded-[28px] bg-[#182435] md:min-h-[640px]">
           <div className="relative z-10 w-full px-7 py-16 text-[#f7f3e9] md:px-16 lg:px-[88px]">
-            <div className="fade-up eyebrow !text-[#9bdde5]">مغسلة النفق · عناية يومية بسيارتك</div>
+            <div className="fade-up mb-2 flex items-center gap-4">
+              <img
+                src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`}
+                alt="شعار مغسلة النفق"
+                className="h-[76px] w-[76px] shrink-0 rounded-full border-[3px] border-white/90 bg-white object-cover shadow-lg ring-4 ring-white/15"
+              />
+              <div>
+                <p className="mb-1 text-sm font-bold text-[#9bdde5]">مغسلة النفق</p>
+                <p className="m-0 text-xs text-white/85">عناية يومية بسيارتك</p>
+              </div>
+            </div>
             <h1 className="fade-up delay-1 mt-7 max-w-[620px] text-[clamp(2.8rem,7vw,5.7rem)] font-bold leading-[1.16] tracking-[-.055em]">
               مشوارك يبدأ<br />بسيارة <span className="text-[#75d1dc]">أنظف.</span>
             </h1>
@@ -274,6 +289,14 @@ function App() {
           <div className="relative min-h-[390px] overflow-hidden rounded-[24px] bg-[#26374b] p-8 text-[#f4f7fa] md:p-11">
             <div aria-hidden="true" className="absolute -left-16 -top-16 h-64 w-64 rounded-full border border-white/10" />
             <div aria-hidden="true" className="absolute -left-2 -top-2 h-36 w-36 rounded-full border border-white/10" />
+            <div className="relative z-10 mb-7 flex items-center gap-3">
+              <img
+                src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`}
+                alt="شعار مغسلة النفق"
+                className="h-[68px] w-[68px] rounded-full border-2 border-white/80 bg-white object-cover shadow-md"
+              />
+              <span className="text-sm font-semibold text-white">مغسلة النفق</span>
+            </div>
             <p className="relative z-10 mb-0 text-sm font-semibold text-[#75d1dc]">مبدأنا بسيط</p>
             <h2 className="relative z-10 mt-5 max-w-[380px] text-4xl font-bold leading-[1.4] tracking-tight md:text-[44px]">سيارتك تستحق عناية واضحة.</h2>
             <p className="relative z-10 mt-5 max-w-[360px] text-sm leading-8 text-[#d8e3eb]">نؤمن أن الخدمة الجيدة لا تحتاج إلى كلام كثير. نظافة تهتم بها، وتجربة مريحة تركز على ما تحتاجه فعلاً.</p>
@@ -337,7 +360,7 @@ function App() {
       <footer className="bg-[#182435] text-[#f0f4f7]">
         <div className="container flex flex-col justify-between gap-7 py-9 sm:flex-row sm:items-center">
           <a href="#الرئيسية" className="flex items-center gap-3 text-inherit no-underline">
-            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/20" />
+            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="شعار مغسلة النفق" className="h-12 w-12 rounded-full object-cover ring-2 ring-white/20" />
             <span>
               <span className="block font-bold">مغسلة النفق</span>
               <span className="mt-1 block text-xs text-[#b8c6d2]">عناية تليق بمشوارك</span>
