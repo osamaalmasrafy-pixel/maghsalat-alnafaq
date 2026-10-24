@@ -78,6 +78,10 @@ a { color: inherit; }
 .primary-button, .outline-button { display: inline-flex; align-items: center; justify-content: center; gap: 11px; border-radius: 999px; padding: 14px 22px; text-decoration: none; font-weight: 700; transition: transform .25s ease, background .25s ease, color .25s ease; }
 .primary-button { color: #f7fafc; background: #26374b; }
 .primary-button:hover { background: #344a62; transform: translateY(-2px); }
+.branch-header-cta { display: none; }
+@media (min-width: 640px) {
+  .branch-header-cta { display: inline-flex; }
+}
 .outline-button { border: 1px solid #93a3b2; color: #26374b; }
 .outline-button:hover { background: #e8f1f3; transform: translateY(-2px); }
 .icon-stroke { stroke-width: 1.6; }

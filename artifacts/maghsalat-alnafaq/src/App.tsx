@@ -6,6 +6,7 @@ import {
   Check,
   ChevronDown,
   Droplets,
+  MessageCircle,
   MapPin,
   Menu,
   MoveUpLeft,
@@ -16,6 +17,9 @@ import {
   X,
 } from 'lucide-react';
 import './index.css';
+
+const whatsappNumber = '0554239820';
+const whatsappUrl = 'https://wa.me/966554239820';
 
 const branches = [
   {
@@ -107,7 +111,12 @@ function App() {
             <a className="nav-link text-sm" href="#الفروع" onClick={closeMenu}>فروعنا</a>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="#الفروع" className="primary-button hidden px-5 py-3 text-sm sm:inline-flex">
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label={`تواصل عبر واتساب على الرقم ${whatsappNumber}`} className="primary-button bg-[#08758a] px-3 py-3 text-sm !text-white hover:!bg-[#09677a] sm:px-4">
+              <MessageCircle size={16} />
+              <span className="hidden sm:inline">واتساب {whatsappNumber}</span>
+              <span className="sm:hidden">واتساب</span>
+            </a>
+            <a href="#الفروع" className="primary-button branch-header-cta px-5 py-3 text-sm">
               اختر فرعك <MoveUpLeft size={16} />
             </a>
             <button type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'} className="grid h-10 w-10 place-items-center rounded-full border border-[#d4dde4] text-[#26374b] md:hidden">
@@ -338,6 +347,7 @@ function App() {
             <a className="no-underline transition hover:text-[#75d1dc]" href="#الخدمات">خدماتنا</a>
             <a className="no-underline transition hover:text-[#75d1dc]" href="#طريقتنا">طريقتنا</a>
             <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#75d1dc]" href="#الفروع"><MapPin size={15} /> فروعنا</a>
+            <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#75d1dc]" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={15} /> واتساب {whatsappNumber}</a>
           </div>
           <span className="text-xs text-[#aebdca]">© مغسلة النفق</span>
         </div>
