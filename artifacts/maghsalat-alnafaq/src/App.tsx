@@ -17,7 +17,18 @@ import {
 } from 'lucide-react';
 import './index.css';
 
-const mapUrl = 'https://www.google.com/maps/search/?api=1&query=%D9%85%D8%BA%D8%B3%D9%84%D8%A9+%D8%A7%D9%84%D9%86%D9%81%D9%82';
+const branches = [
+  {
+    title: 'فرع حي المنسك',
+    area: 'حي المنسك',
+    mapUrl: 'https://maps.app.goo.gl/3oxAXzEoKnFfJES89',
+  },
+  {
+    title: 'فرع طريق الملك عبد الله',
+    area: 'طريق الملك عبد الله',
+    mapUrl: 'https://maps.app.goo.gl/N1kVtGnCtAKrK9WK7',
+  },
+];
 
 const services = [
   {
@@ -50,10 +61,29 @@ const services = [
   },
 ];
 
+const exteriorPrices = [
+  ['السيارة الصغيرة', '٢٣ ﷼'],
+  ['السيارة المتوسطة', '٢٥ ﷼'],
+  ['السيارة الكبيرة', '٢٩ ﷼'],
+] as const;
+
+const fullWashPrices = [
+  ['السيارة الصغيرة', '٣٠ ﷼'],
+  ['السيارة المتوسطة', '٣٥ ﷼'],
+  ['السيارة الكبيرة', '٤٠ ﷼'],
+] as const;
+
+const washInclusions = [
+  'تكييس عصا الجير والمساحات مع معطر',
+  'استخدام شامبو بتقنية الواكس',
+  'مزيل أوساخ PRO WASH',
+  'مناشف خاصة لكل سيارة',
+];
+
 const values = [
   { icon: ShieldCheck, title: 'عناية قبل السرعة', copy: 'نتعامل مع سيارتك باهتمام وحرص في كل خطوة.' },
   { icon: Droplets, title: 'أساسيات نظيفة', copy: 'خدمة واضحة تركز على نظافة السيارة كما ينبغي.' },
-  { icon: MapPin, title: 'قريبون منك', copy: 'ابحث عن مغسلة النفق على الخريطة وخطط لزيارتك.' },
+  { icon: MapPin, title: 'فرعان قريبان منك', copy: 'زورونا في حي المنسك أو على طريق الملك عبد الله.' },
 ];
 
 function App() {
@@ -74,11 +104,11 @@ function App() {
           <nav aria-label="التنقل الرئيسي" className={`${menuOpen ? 'absolute inset-x-0 top-[77px] flex flex-col gap-5 border-b border-[#e1e7ec] bg-[#f6f8fa] px-6 py-6 shadow-lg' : 'hidden'} md:static md:flex md:flex-row md:items-center md:gap-9 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
             <a className="nav-link text-sm" href="#الخدمات" onClick={closeMenu}>خدماتنا</a>
             <a className="nav-link text-sm" href="#طريقتنا" onClick={closeMenu}>طريقتنا</a>
-            <a className="nav-link text-sm" href="#زيارتك" onClick={closeMenu}>موقعنا</a>
+            <a className="nav-link text-sm" href="#الفروع" onClick={closeMenu}>فروعنا</a>
           </nav>
           <div className="flex items-center gap-3">
-            <a href={mapUrl} target="_blank" rel="noreferrer" className="primary-button hidden px-5 py-3 text-sm sm:inline-flex">
-              اعثر علينا <MoveUpLeft size={16} />
+            <a href="#الفروع" className="primary-button hidden px-5 py-3 text-sm sm:inline-flex">
+              اختر فرعك <MoveUpLeft size={16} />
             </a>
             <button type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'} className="grid h-10 w-10 place-items-center rounded-full border border-[#d4dde4] text-[#26374b] md:hidden">
               {menuOpen ? <X size={19} /> : <Menu size={19} />}
@@ -101,8 +131,8 @@ function App() {
               <a href="#الخدمات" className="primary-button bg-[#08758a] !text-white hover:!bg-[#09677a]">
                 اكتشف خدماتنا <ArrowLeft size={17} />
               </a>
-              <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/35 px-5 py-[13px] text-sm font-semibold text-white no-underline transition hover:bg-white/10">
-                <MapPin size={16} /> افتح الموقع على الخريطة
+              <a href="#الفروع" className="inline-flex items-center gap-2 rounded-full border border-white/35 px-5 py-[13px] text-sm font-semibold text-white no-underline transition hover:bg-white/10">
+                <MapPin size={16} /> اختر الفرع الأقرب
               </a>
             </div>
             <div className="mt-14 flex items-center gap-3 text-sm text-[#e4e7dd]">
@@ -134,6 +164,73 @@ function App() {
               <p className="mb-0 mt-3 text-sm leading-7 text-[#657383]">{description}</p>
             </article>
           ))}
+        </div>
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          <article className="service-card">
+            <div className="flex items-center gap-4">
+              <span className="service-icon"><Droplets size={23} className="icon-stroke" /></span>
+              <div>
+                <p className="mb-1 text-xs font-semibold text-[#08758a]">قائمة الأسعار</p>
+                <h3 className="m-0 text-2xl font-bold text-[#26374b]">الغسيل الخارجي</h3>
+              </div>
+            </div>
+            <div className="mt-6 divide-y divide-[#dfe5ea]">
+              {exteriorPrices.map(([name, price]) => (
+                <div key={name} className="flex items-center justify-between gap-4 py-3.5">
+                  <span className="text-sm font-medium text-[#465565]">{name}</span>
+                  <span className="font-bold text-[#08758a]">{price}</span>
+                </div>
+              ))}
+              <div className="flex items-center justify-between gap-4 py-3.5">
+                <span className="text-sm font-medium text-[#465565]">تكييس الدعاسات</span>
+                <span className="font-bold text-[#08758a]">٥ ﷼</span>
+              </div>
+            </div>
+          </article>
+          <article className="service-card">
+            <div className="flex items-center gap-4">
+              <span className="service-icon"><Sparkles size={23} className="icon-stroke" /></span>
+              <div>
+                <p className="mb-1 text-xs font-semibold text-[#08758a]">قائمة الأسعار</p>
+                <h3 className="m-0 text-2xl font-bold text-[#26374b]">الغسيل الكامل</h3>
+              </div>
+            </div>
+            <div className="mt-6 divide-y divide-[#dfe5ea]">
+              {fullWashPrices.map(([name, price]) => (
+                <div key={name} className="flex items-center justify-between gap-4 py-3.5">
+                  <span className="text-sm font-medium text-[#465565]">{name}</span>
+                  <span className="font-bold text-[#08758a]">{price}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+        <div className="mt-8 grid gap-7 rounded-[24px] border border-[#dfe5ea] bg-white p-5 md:p-7 lg:grid-cols-[1fr_370px] lg:items-center">
+          <div>
+            <div className="eyebrow">تفاصيل الخدمة</div>
+            <h3 className="section-title !mt-3 text-3xl">الغسيل يشمل</h3>
+            <ul className="mt-6 space-y-4 p-0">
+              {washInclusions.map((item) => (
+                <li key={item} className="flex list-none items-start gap-3 text-sm leading-7 text-[#465565]">
+                  <Check size={18} className="mt-1 shrink-0 text-[#08758a]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a
+            href={`${import.meta.env.BASE_URL}tunnel-price-list.jpg`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="عرض صورة قائمة الأسعار بالحجم الكامل"
+            className="mx-auto block w-full max-w-[370px] overflow-hidden rounded-[18px] bg-[#f6f8fa] ring-1 ring-[#26374b]/10"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}tunnel-price-list.jpg`}
+              alt="قائمة أسعار مغسلة النفق، تشمل أسعار الغسيل الكامل والخارجي وما تتضمنه الخدمة"
+              className="block h-auto w-full object-contain"
+            />
+          </a>
         </div>
       </section>
 
@@ -193,23 +290,37 @@ function App() {
         </div>
       </section>
 
-      <section id="زيارتك" className="container pb-24 md:pb-32">
+      <section id="الفروع" className="container pb-24 md:pb-32">
         <div className="relative overflow-hidden rounded-[26px] bg-[#dcebef] px-7 py-12 md:px-14 md:py-14">
           <div aria-hidden="true" className="absolute -left-10 -top-24 h-72 w-72 rounded-full border border-[#08758a]/20" />
           <div aria-hidden="true" className="absolute -left-1 -top-16 h-52 w-52 rounded-full border border-[#08758a]/20" />
-          <div className="relative z-10 flex flex-col justify-between gap-8 md:flex-row md:items-center">
-            <div className="max-w-[620px]">
-              <div className="eyebrow">زيارتك القادمة</div>
-              <h2 className="mt-4 text-[clamp(2rem,4.2vw,3.3rem)] font-bold leading-[1.25] tracking-tight text-[#26374b]">خلّ سيارتك علينا.</h2>
-              <p className="mb-0 mt-3 max-w-[520px] leading-8 text-[#465565]">ابحث عن مغسلة النفق على خرائط جوجل لمعرفة موقعها والاتجاهات المتاحة.</p>
+          <div className="relative z-10">
+            <div className="max-w-[700px]">
+              <div className="eyebrow">فروع مغسلة النفق</div>
+              <h2 className="mt-4 text-[clamp(2rem,4.2vw,3.3rem)] font-bold leading-[1.25] tracking-tight text-[#26374b]">فرعان لخدمتك.</h2>
+              <p className="mb-0 mt-3 max-w-[600px] leading-8 text-[#465565]">اختر الفرع الأقرب إليك وافتح موقعه مباشرةً على خرائط Google.</p>
             </div>
-            <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-[#26374b] px-7 py-4 font-bold !text-white no-underline transition hover:-translate-y-1 hover:bg-[#344a62]">
-              <MapPin size={18} /> افتح موقعنا على الخريطة <ArrowUpLeft size={18} />
-            </a>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {branches.map(({ title, area, mapUrl: branchMapUrl }) => (
+                <article key={title} className="rounded-[20px] border border-[#26374b]/10 bg-white/75 p-6 md:p-7">
+                  <div className="flex items-start gap-4">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#e6f1f3] text-[#08758a]"><MapPin size={22} /></span>
+                    <div>
+                      <p className="mb-1 text-xs font-semibold text-[#08758a]">موقع الفرع</p>
+                      <h3 className="m-0 text-xl font-bold text-[#26374b]">{title}</h3>
+                      <p className="mb-0 mt-2 text-sm text-[#657383]">{area}</p>
+                    </div>
+                  </div>
+                  <a href={branchMapUrl} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#26374b] px-5 py-3 text-sm font-bold !text-white no-underline transition hover:bg-[#344a62]">
+                    <MapPin size={16} /> الاتجاهات إلى الفرع <ArrowUpLeft size={16} />
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
           <div className="relative z-10 mt-10 flex items-center gap-2 border-t border-[#08758a]/20 pt-5 text-sm text-[#526174]">
             <ChevronDown size={15} className="rotate-[-90deg]" />
-            <span>الموقع والاتجاهات عبر خرائط جوجل</span>
+            <span>تفتح روابط الاتجاهات موقع الفرع المحدد على خرائط Google</span>
           </div>
         </div>
       </section>
@@ -226,7 +337,7 @@ function App() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#d7e0e7]">
             <a className="no-underline transition hover:text-[#75d1dc]" href="#الخدمات">خدماتنا</a>
             <a className="no-underline transition hover:text-[#75d1dc]" href="#طريقتنا">طريقتنا</a>
-            <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#75d1dc]" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={15} /> موقعنا على الخريطة</a>
+            <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#75d1dc]" href="#الفروع"><MapPin size={15} /> فروعنا</a>
           </div>
           <span className="text-xs text-[#aebdca]">© مغسلة النفق</span>
         </div>
