@@ -62,20 +62,16 @@ function App() {
 
   return (
     <main dir="rtl" className="overflow-hidden">
-      <header className="relative z-20 border-b border-[#e4e1d7] bg-[#f6f3eb]/95">
+      <header className="relative z-20 border-b border-[#e1e7ec] bg-[#f6f8fa]/95">
         <div className="container flex h-[78px] items-center justify-between">
           <a href="#الرئيسية" onClick={closeMenu} aria-label="مغسلة النفق، الرئيسية" className="flex items-center gap-3 no-underline">
-            <span className="grid h-11 w-11 place-items-center rounded-[14px] bg-[#214a3c] text-[#f5f0e5]">
-              <span className="relative block h-5 w-7 overflow-hidden rounded-t-full border-2 border-[#e8a25a] border-b-0">
-                <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-[#e8a25a]" />
-              </span>
-            </span>
+            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="" className="h-11 w-11 rounded-full object-cover ring-1 ring-[#26374b]/15" />
             <span className="leading-tight">
-              <span className="block text-[17px] font-bold tracking-tight text-[#183b30]">مغسلة النفق</span>
-              <span className="mt-1 block text-[10px] tracking-[.08em] text-[#758078]">عناية تليق بمشوارك</span>
+              <span className="block text-[17px] font-bold tracking-tight text-[#26374b]">مغسلة النفق</span>
+              <span className="mt-1 block text-[10px] tracking-[.08em] text-[#687887]">عناية تليق بمشوارك</span>
             </span>
           </a>
-          <nav aria-label="التنقل الرئيسي" className={`${menuOpen ? 'absolute inset-x-0 top-[77px] flex flex-col gap-5 border-b border-[#e4e1d7] bg-[#f6f3eb] px-6 py-6 shadow-lg' : 'hidden'} md:static md:flex md:flex-row md:items-center md:gap-9 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
+          <nav aria-label="التنقل الرئيسي" className={`${menuOpen ? 'absolute inset-x-0 top-[77px] flex flex-col gap-5 border-b border-[#e1e7ec] bg-[#f6f8fa] px-6 py-6 shadow-lg' : 'hidden'} md:static md:flex md:flex-row md:items-center md:gap-9 md:border-0 md:bg-transparent md:p-0 md:shadow-none`}>
             <a className="nav-link text-sm" href="#الخدمات" onClick={closeMenu}>خدماتنا</a>
             <a className="nav-link text-sm" href="#طريقتنا" onClick={closeMenu}>طريقتنا</a>
             <a className="nav-link text-sm" href="#زيارتك" onClick={closeMenu}>موقعنا</a>
@@ -84,7 +80,7 @@ function App() {
             <a href={mapUrl} target="_blank" rel="noreferrer" className="primary-button hidden px-5 py-3 text-sm sm:inline-flex">
               اعثر علينا <MoveUpLeft size={16} />
             </a>
-            <button type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'} className="grid h-10 w-10 place-items-center rounded-full border border-[#d8d8cc] text-[#214a3c] md:hidden">
+            <button type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'} className="grid h-10 w-10 place-items-center rounded-full border border-[#d4dde4] text-[#26374b] md:hidden">
               {menuOpen ? <X size={19} /> : <Menu size={19} />}
             </button>
           </div>
@@ -92,17 +88,17 @@ function App() {
       </header>
 
       <section id="الرئيسية" className="container pt-6 md:pt-8">
-        <div className="hero-photo grain relative flex min-h-[570px] items-center overflow-hidden rounded-[28px] bg-[#1c3a30] md:min-h-[640px]">
+        <div className="hero-photo grain relative flex min-h-[570px] items-center overflow-hidden rounded-[28px] bg-[#182435] md:min-h-[640px]">
           <div className="relative z-10 w-full px-7 py-16 text-[#f7f3e9] md:px-16 lg:px-[88px]">
-            <div className="fade-up eyebrow !text-[#f1b46e]">مغسلة النفق · عناية يومية بسيارتك</div>
+            <div className="fade-up eyebrow !text-[#9bdde5]">مغسلة النفق · عناية يومية بسيارتك</div>
             <h1 className="fade-up delay-1 mt-7 max-w-[620px] text-[clamp(2.8rem,7vw,5.7rem)] font-bold leading-[1.16] tracking-[-.055em]">
-              مشوارك يبدأ<br />بسيارة <span className="text-[#efb36e]">أنظف.</span>
+              مشوارك يبدأ<br />بسيارة <span className="text-[#75d1dc]">أنظف.</span>
             </h1>
             <p className="fade-up delay-2 mt-6 max-w-[450px] text-base leading-8 text-[#e4e7dd] md:text-lg">
               غسيل وعناية بالتفاصيل، باهتمام بسيط وواضح من أول خطوة إلى لحظة استلامك.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href="#الخدمات" className="primary-button bg-[#e7a057] !text-[#1b392e] hover:!bg-[#f0b675]">
+              <a href="#الخدمات" className="primary-button bg-[#08758a] !text-white hover:!bg-[#09677a]">
                 اكتشف خدماتنا <ArrowLeft size={17} />
               </a>
               <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/35 px-5 py-[13px] text-sm font-semibold text-white no-underline transition hover:bg-white/10">
@@ -131,17 +127,17 @@ function App() {
             <article key={number} className="service-card group min-h-[255px]">
               <div className="flex items-start justify-between">
                 <span className="service-icon"><Icon size={23} className="icon-stroke" /></span>
-                <span className="font-serif text-sm text-[#a2a79b]">{number}</span>
+                <span className="font-serif text-sm text-[#9aa8b4]">{number}</span>
               </div>
-              <p className="mb-2 mt-7 text-xs font-semibold text-[#ad6a2b]">{tag}</p>
-              <h3 className="m-0 text-xl font-bold text-[#214438]">{title}</h3>
-              <p className="mb-0 mt-3 text-sm leading-7 text-[#6d7870]">{description}</p>
+              <p className="mb-2 mt-7 text-xs font-semibold text-[#08758a]">{tag}</p>
+              <h3 className="m-0 text-xl font-bold text-[#26374b]">{title}</h3>
+              <p className="mb-0 mt-3 text-sm leading-7 text-[#657383]">{description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="طريقتنا" className="relative bg-[#e9ece2] py-24 md:py-28">
+      <section id="طريقتنا" className="relative bg-[#eaf0f3] py-24 md:py-28">
         <div className="container">
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
@@ -157,9 +153,9 @@ function App() {
               ].map(([number, title, copy], index) => (
                 <div className="relative" key={number}>
                   {index < 2 && <div aria-hidden="true" className="step-line" />}
-                  <span className="relative z-10 grid h-[54px] w-[54px] place-items-center rounded-full border border-[#b6c4b8] bg-[#f5f4ec] font-serif text-lg text-[#25513f]">{number}</span>
-                  <h3 className="mb-2 mt-5 text-lg font-bold text-[#214438]">{title}</h3>
-                  <p className="m-0 text-sm leading-7 text-[#69766e]">{copy}</p>
+                  <span className="relative z-10 grid h-[54px] w-[54px] place-items-center rounded-full border border-[#b8cad1] bg-[#f8fafb] font-serif text-lg text-[#08758a]">{number}</span>
+                  <h3 className="mb-2 mt-5 text-lg font-bold text-[#26374b]">{title}</h3>
+                  <p className="m-0 text-sm leading-7 text-[#657383]">{copy}</p>
                 </div>
               ))}
             </div>
@@ -169,12 +165,12 @@ function App() {
 
       <section className="container py-24 md:py-32">
         <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
-          <div className="relative min-h-[390px] overflow-hidden rounded-[24px] bg-[#24483b] p-8 text-[#f4f0e6] md:p-11">
+          <div className="relative min-h-[390px] overflow-hidden rounded-[24px] bg-[#26374b] p-8 text-[#f4f7fa] md:p-11">
             <div aria-hidden="true" className="absolute -left-16 -top-16 h-64 w-64 rounded-full border border-white/10" />
             <div aria-hidden="true" className="absolute -left-2 -top-2 h-36 w-36 rounded-full border border-white/10" />
-            <p className="relative z-10 mb-0 text-sm font-semibold text-[#efb36e]">مبدأنا بسيط</p>
+            <p className="relative z-10 mb-0 text-sm font-semibold text-[#75d1dc]">مبدأنا بسيط</p>
             <h2 className="relative z-10 mt-5 max-w-[380px] text-4xl font-bold leading-[1.4] tracking-tight md:text-[44px]">سيارتك تستحق عناية واضحة.</h2>
-            <p className="relative z-10 mt-5 max-w-[360px] text-sm leading-8 text-[#d8e0d8]">نؤمن أن الخدمة الجيدة لا تحتاج إلى كلام كثير. نظافة تهتم بها، وتجربة مريحة تركز على ما تحتاجه فعلاً.</p>
+            <p className="relative z-10 mt-5 max-w-[360px] text-sm leading-8 text-[#d8e3eb]">نؤمن أن الخدمة الجيدة لا تحتاج إلى كلام كثير. نظافة تهتم بها، وتجربة مريحة تركز على ما تحتاجه فعلاً.</p>
             <div className="absolute bottom-8 left-8 text-[10px] tracking-[.18em] text-white/45">مغسلة النفق</div>
           </div>
           <div>
@@ -183,13 +179,13 @@ function App() {
             <p className="section-copy mt-4">نستقبل كل سيارة بعناية واحترام، ونحافظ على تجربة بسيطة من دون تفاصيل غير مؤكدة.</p>
             <div className="mt-8 space-y-5">
               {values.map(({ icon: Icon, title, copy }) => (
-                <div key={title} className="flex gap-4 border-b border-[#deded2] pb-5 last:border-0">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e4eae1] text-[#285342]"><Icon size={20} className="icon-stroke" /></span>
+                <div key={title} className="flex gap-4 border-b border-[#dfe5ea] pb-5 last:border-0">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e6f1f3] text-[#08758a]"><Icon size={20} className="icon-stroke" /></span>
                   <div>
-                    <h3 className="mb-1 mt-0 text-base font-bold text-[#214438]">{title}</h3>
-                    <p className="m-0 text-sm leading-7 text-[#6d7870]">{copy}</p>
+                    <h3 className="mb-1 mt-0 text-base font-bold text-[#26374b]">{title}</h3>
+                    <p className="m-0 text-sm leading-7 text-[#657383]">{copy}</p>
                   </div>
-                  <Check className="mr-auto mt-3 text-[#72917b]" size={17} />
+                  <Check className="mr-auto mt-3 text-[#08758a]" size={17} />
                 </div>
               ))}
             </div>
@@ -198,43 +194,41 @@ function App() {
       </section>
 
       <section id="زيارتك" className="container pb-24 md:pb-32">
-        <div className="relative overflow-hidden rounded-[26px] bg-[#e5a05a] px-7 py-12 md:px-14 md:py-14">
-          <div aria-hidden="true" className="absolute -left-10 -top-24 h-72 w-72 rounded-full border border-[#7e4b24]/20" />
-          <div aria-hidden="true" className="absolute -left-1 -top-16 h-52 w-52 rounded-full border border-[#7e4b24]/20" />
+        <div className="relative overflow-hidden rounded-[26px] bg-[#dcebef] px-7 py-12 md:px-14 md:py-14">
+          <div aria-hidden="true" className="absolute -left-10 -top-24 h-72 w-72 rounded-full border border-[#08758a]/20" />
+          <div aria-hidden="true" className="absolute -left-1 -top-16 h-52 w-52 rounded-full border border-[#08758a]/20" />
           <div className="relative z-10 flex flex-col justify-between gap-8 md:flex-row md:items-center">
             <div className="max-w-[620px]">
-              <div className="eyebrow !text-[#604221]">زيارتك القادمة</div>
-              <h2 className="mt-4 text-[clamp(2rem,4.2vw,3.3rem)] font-bold leading-[1.25] tracking-tight text-[#203c31]">خلّ سيارتك علينا.</h2>
-              <p className="mb-0 mt-3 max-w-[520px] leading-8 text-[#443f32]">ابحث عن مغسلة النفق على خرائط جوجل لمعرفة موقعها والاتجاهات المتاحة.</p>
+              <div className="eyebrow">زيارتك القادمة</div>
+              <h2 className="mt-4 text-[clamp(2rem,4.2vw,3.3rem)] font-bold leading-[1.25] tracking-tight text-[#26374b]">خلّ سيارتك علينا.</h2>
+              <p className="mb-0 mt-3 max-w-[520px] leading-8 text-[#465565]">ابحث عن مغسلة النفق على خرائط جوجل لمعرفة موقعها والاتجاهات المتاحة.</p>
             </div>
-            <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-[#203f33] px-7 py-4 font-bold text-[#f8f4e9] no-underline transition hover:-translate-y-1 hover:bg-[#2d5a47]">
+            <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-[#26374b] px-7 py-4 font-bold !text-white no-underline transition hover:-translate-y-1 hover:bg-[#344a62]">
               <MapPin size={18} /> افتح موقعنا على الخريطة <ArrowUpLeft size={18} />
             </a>
           </div>
-          <div className="relative z-10 mt-10 flex items-center gap-2 border-t border-[#76512d]/20 pt-5 text-sm text-[#52432e]">
+          <div className="relative z-10 mt-10 flex items-center gap-2 border-t border-[#08758a]/20 pt-5 text-sm text-[#526174]">
             <ChevronDown size={15} className="rotate-[-90deg]" />
             <span>الموقع والاتجاهات عبر خرائط جوجل</span>
           </div>
         </div>
       </section>
 
-      <footer className="bg-[#19382d] text-[#f0eee5]">
+      <footer className="bg-[#182435] text-[#f0f4f7]">
         <div className="container flex flex-col justify-between gap-7 py-9 sm:flex-row sm:items-center">
           <a href="#الرئيسية" className="flex items-center gap-3 text-inherit no-underline">
-            <span className="grid h-10 w-10 place-items-center rounded-[13px] border border-white/20">
-              <span className="block h-[17px] w-6 rounded-t-full border-2 border-[#e8a25a] border-b-0" />
-            </span>
+            <img src={`${import.meta.env.BASE_URL}tunnel-car-wash-logo.png`} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/20" />
             <span>
               <span className="block font-bold">مغسلة النفق</span>
-              <span className="mt-1 block text-xs text-[#b6c2b9]">عناية تليق بمشوارك</span>
+              <span className="mt-1 block text-xs text-[#b8c6d2]">عناية تليق بمشوارك</span>
             </span>
           </a>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#d4ddd5]">
-            <a className="no-underline transition hover:text-[#efb36e]" href="#الخدمات">خدماتنا</a>
-            <a className="no-underline transition hover:text-[#efb36e]" href="#طريقتنا">طريقتنا</a>
-            <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#efb36e]" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={15} /> موقعنا على الخريطة</a>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#d7e0e7]">
+            <a className="no-underline transition hover:text-[#75d1dc]" href="#الخدمات">خدماتنا</a>
+            <a className="no-underline transition hover:text-[#75d1dc]" href="#طريقتنا">طريقتنا</a>
+            <a className="inline-flex items-center gap-2 no-underline transition hover:text-[#75d1dc]" href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={15} /> موقعنا على الخريطة</a>
           </div>
-          <span className="text-xs text-[#aab9af]">© مغسلة النفق</span>
+          <span className="text-xs text-[#aebdca]">© مغسلة النفق</span>
         </div>
       </footer>
     </main>
